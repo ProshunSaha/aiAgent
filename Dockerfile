@@ -13,7 +13,7 @@ COPY . /app
 # For now, we'll install dependencies manually or assume a requirements.txt generation.
 # Better: Just install the dependencies we know are needed.
 
-RUN pip install --no-cache-dir google-genai==1.12.1 python-dotenv==1.1.0 fastapi uvicorn
+RUN pip install --no-cache-dir google-genai==1.12.1 python-dotenv==1.1.0 fastapi uvicorn sqlalchemy psycopg2-binary
 
 # Make port 8000 available to the world outside this container
 EXPOSE 8000

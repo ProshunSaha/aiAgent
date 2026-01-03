@@ -41,10 +41,16 @@ All paths you provide should be relative to the working directory. You do not ne
             system_instruction=self.system_prompt
         )
 
-    def run(self, prompt: str, verbose: bool = False):
-        messages = [
-            types.Content(role="user", parts=[types.Part(text=prompt)])
-        ]
+    def run(self, prompt: str, history: list = None, verbose: bool = False):
+        """
+        Runs the agent with the given prompt and optional history.
+        history: A list of google.genai.types.Content objects.
+        """
+        messages = []
+        if history:
+            messages.extend(history)
+
+        messages.append(types.Content(role="user", parts=[types.Part(text=prompt)]))
 
         output_log = []
 

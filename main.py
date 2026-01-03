@@ -14,7 +14,7 @@ def main():
     
     try:
         agent = Agent()
-        result = agent.run(prompt, verbose_flag)
+        result = agent.run(prompt, verbose=verbose_flag)
         # The logs are already printed by the agent.run method for now to maintain CLI behavior
     except Exception as e:
         print(f"Error: {e}")
